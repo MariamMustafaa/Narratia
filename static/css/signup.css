@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: #020202;
+    min-height: 100vh;
+}
+.main{
+    /* background: linear-gradient(#343434,#2d173b,#231234,#06000a,#3a1d56,#0a050f,#000000); */
+    background: linear-gradient(to right,#50276494,#603178a8,#4a2462c4,#784278b5,#504b4be4,#3b383882);
+    height: 52vh;
+    width: 40vw;
+    margin-left: 30vw;
+    margin-top: 24vh;
+}
+input{
+    border-style: none;
+    background: transparent;
+    border-bottom: solid 1px;
+    width: 14vw;
+    font-size: 15px;
+    font-weight: bolder;
+}
+input:focus {
+    /*  */
+    outline: none;
+    border-bottom: solid 2px;
+}
+.main h1{
+    margin-left: 15vw;
+    margin-bottom: 5vh;
+    padding-top: 5vh;
+    font-style: italic;
+    /* font-family: 'Athelas', serif; */
+}
+.User-input div{
+    margin-left:13vw;
+    display: flex;
+    flex-direction: column;
+}
+.User-input div i{
+    margin-top: -3vh;
+    margin-left: 13vw;
+}
+.User-input{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+.User-input button{
+    width: 14vw;
+    height: 4.5vh;
+    margin-left: 13vw;
+    border-radius: 20px;
+    border-style: none;
+    padding-bottom: 0.5vh;
+    transition-duration: 0.3s;
+    font-weight: bolder;
+}
+.User-input button:hover{
+    transform: scale(0.95);
+}
+.User-input p{
+    margin-left:13vw ;
+    font-style: italic;
+    font-family: 'Athelas', serif;
+    font-weight: bolder;
+}
+.User-input p a{
+    color:#d6c5e0;
+}
+.msg{
+    color: white;
+}

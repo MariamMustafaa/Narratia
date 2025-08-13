@@ -34,8 +34,18 @@
          <p> sharing thoughts and connecting through books.</p>
          <p>It’s a space crafted for readers, writers and dreamers to explore ideas,</p>
          <p>create freely and grow a vibrant book-loving community.</p>
-          <div id="join"><a href="">Join</a></div>
+          <div id="join"><a href="/signup.html">Join</a></div>
         </div>
+       <!--  {%if message %}
+            <h1>{{message}}</h1>
+        {% endif %}  -->
+
+        {%with msg=get_flashed_messages()%}
+         {%if msg%}
+               <p>{{msg[0]}}</p>
+          {%endif%}
+        {% endwith %}
+
         <h1 id="doing"><i class="fa-solid fa-book-open"></i> What can you do here?</h1>
         <div class="cards">
             <div><h3>Discover a curated Library of free novels and stories to read online</h3></div>
