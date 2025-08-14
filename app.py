@@ -64,5 +64,5 @@ def login():
             return render_template("index.html")
     
 if __name__ == "__main__": # don’t import and run the server from other files only from this file
-    narratia.run(debug=True) 
+    narratia.run(debug=True, host='0.0.0.0', port=5000) 
     
