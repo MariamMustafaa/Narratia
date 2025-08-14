@@ -7,6 +7,8 @@ from data import SignUp_Data , login_data , user
 # from data import reading_password
 
 narratia=Flask(__name__) #object from flask class to create yhe main server 
+app = narratia 
+
 narratia.secret_key ="m7XVX5azO0/3Kte|4"
 @narratia.route("/")
 def main():
