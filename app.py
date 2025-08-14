@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import flash #flash is a function
-from data import SignUp_Data , login_data , user 
+from data import SignUp_Data , login_data 
 # from data import reading_email
 # from data import reading_password
 
