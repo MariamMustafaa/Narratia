@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NARRATIA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/blogs.css')}}">
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <div id="logo"><h3>NARRATIA</h3></div>
+            <ul class="container">
+                <li><i class="fa-solid fa-house" style="color: #929292;"></i><a href="{{url_for('main')}}"> Home</a></li>
+                <li><i class="fa-solid fa-book-open-reader" style="color: #929292;"></i><a href="{{url_for('library')}}"> library</a></li>
+                <li><i class="fa-solid fa-child-reaching" style="color: #929292;"></i><a href="#"> blogs</a></li>
+                <!-- <li><i class="fa-solid fa-trophy" style="color: #929292;"></i><a href="#"> Contests</a></li> -->
+                <!-- <li><i class="fa-solid fa-pen-to-square" style="color: #929292;"></i><a href="#"> Summaries</a></li> -->
+                <!-- <li><i class="fa-solid fa-star" style="color: #929292;"></i><a href="#"> Reviews</a></li> -->
+                <!-- <li><i class="fa-solid fa-bookmark" style="color: #929292;"></i><a href="#"> Saved</a></li> -->
+                <!-- <li><i class="fa-solid fa-gear" style="color: #929292;"></i><a href="#"> settings</a></li> -->
+                <!-- color: #593652 -->
+                 <!-- gray!!  #a0a0a0 -->
+            </ul>
+        </nav>
+    </header>
+    <header>
+        <div class="upper-bar">
+            <h1>Blogs</h1>
+            <!-- <input class="search" type="text" placeholder="search"> -->
+            <!-- <button type="submit" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button> -->
+        </div>
+    </header>
+    <section>
+    <form action="" method="POST" class="add-blogs" enctype="multipart/form-data" >
+        <h1 class="blog-header">Add post</h1>
+        <input type="text" placeholder="title" class="title" name="title" required>
+        <textarea name="content" class="content" placeholder="content" ></textarea>
+        <input type="file" name="image_file">
+        <!-- <input type="file" name="audio_file"> -->
+        <button class="blog-btn" type="submit">Post</button>
+    </form>
+    </section>
+    <!-- flash messages -->
+    <section>
+            {%with messages=get_flashed_messages(with_categories=True)%}
+            {%if messages%}
+            {%for category , msg in messages%}
+            {% if category == "blogs" %}
+            <div class="flash-msg">
+                <p>{{ msg }}</p>
+            </div>
+            {%endif%}
+            {%endfor%}
+            {%endif%}
+            {%endwith%}
+    </section>
+    
+    <!-- add blogs -->
+    <section class="user-blogs">
+            {%if blogs%}
+            <div class="all-blogs">
+                {%for id, title, content,image,audio,time in blogs%}
+                <div class="new-blogs">
+                    <h3 class="TITLE" >{{title}}</h3>
+                    <p>{{content}}</p>
+                    {%if image%}    
+                    <a href="{{url_for('static',filename='image_folder/' ~image )}}" 
+                    target="_blank"><img class="blog-img" src="{{url_for('static',filename='image_folder/' ~image )}}"></a>
+                    {%endif%}
+                    {%if audio%}
+                    <source src="{{url_for('static',filename= 'audio_folder/' ~audio)}}">
+                    {%endif%}
+                    <small>{{time}}</small>
+                </div> 
+                {%endfor%}
+            </div>
+            {%endif%}
+    </section>
+</body>
+</html>

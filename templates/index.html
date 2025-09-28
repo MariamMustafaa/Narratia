@@ -7,7 +7,6 @@
    <!-- <link rel="stylesheet" href="static/style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
-
 </head>
 <body>
     <header>
@@ -15,13 +14,13 @@
             <div id="logo"><h3>NARRATIA</h3></div>
             <ul class="container">
                 <li><i class="fa-solid fa-house" style="color: #929292;"></i><a href="#"> Home</a></li>
-                <li><i class="fa-solid fa-book-open-reader" style="color: #929292;"></i><a href="#"> library</a></li>
-                <li><i class="fa-solid fa-child-reaching" style="color: #929292;"></i><a href="#"> BookPosts</a></li>
-                <li><i class="fa-solid fa-trophy" style="color: #929292;"></i><a href="#"> Contests</a></li>
+                <li><i class="fa-solid fa-book-open-reader" style="color: #929292;"></i><a href="{{url_for('library')}}"> library</a></li>
+                <li><i class="fa-solid fa-child-reaching" style="color: #929292;"></i><a href="{{url_for('blogs.blogs')}}"> blogs</a></li>
+                <!-- <li><i class="fa-solid fa-trophy" style="color: #929292;"></i><a href="#"> Contests</a></li>
                 <li><i class="fa-solid fa-pen-to-square" style="color: #929292;"></i><a href="#"> Summaries</a></li>
                 <li><i class="fa-solid fa-star" style="color: #929292;"></i><a href="#"> Reviews</a></li>
                 <li><i class="fa-solid fa-bookmark" style="color: #929292;"></i><a href="#"> Saved</a></li>
-                <li><i class="fa-solid fa-gear" style="color: #929292;"></i><a href="#"> settings</a></li>
+                <li><i class="fa-solid fa-gear" style="color: #929292;"></i><a href="#"> settings</a></li> -->
                 <!-- color: #593652 -->
                  <!-- gray!!  #a0a0a0 -->
             </ul>
@@ -34,7 +33,7 @@
          <p> sharing thoughts and connecting through books.</p>
          <p>It’s a space crafted for readers, writers and dreamers to explore ideas,</p>
          <p>create freely and grow a vibrant book-loving community.</p>
-          <div id="join"><a href="/signup.html">Join</a></div>
+          <div id="join"><a href="{{url_for('sign_up')}}">Join</a></div>
         </div>
        <!--  {%if message %}
             <h1>{{message}}</h1>
@@ -55,6 +54,15 @@
             <div><h3>Join exciting Contests in writing and storytelling to earn points and recognition</h3></div>
             <div><h3>Save your favorite content to build a personalized reading space</h3></div>
         </div>
+
+        <div class="flash-msg">
+            {%with message=get_flashed_messages() %}
+            {%if message%}
+            <h3>{{message[0]}}</h3>
+            {%endif%}
+            {%endwith%}
+        </div>
+
     </section>
     <section>
         <br>
@@ -66,4 +74,3 @@
     </section>
 </body>
 </html>
-
