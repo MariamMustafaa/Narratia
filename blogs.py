@@ -5,10 +5,10 @@ from werkzeug.utils import secure_filename
 blog_bp=Blueprint("blogs",__name__)
 
 folder_name_for_image="static/image_folder"
-folder_name_for_audio="static/audio_folder"
+#folder_name_for_audio="static/audio_folder"
 # create folders if not exist
 os.makedirs(folder_name_for_image, exist_ok=True)
-os.makedirs(folder_name_for_audio, exist_ok=True)
+#os.makedirs(folder_name_for_audio, exist_ok=True)
 # Allowed extensions
 allowed_image_extensions = {"png", "jpg", "jpeg", "gif"}
 allowed_audio_extensions = {"mp3", "mp4", "wav", "m4a"}
